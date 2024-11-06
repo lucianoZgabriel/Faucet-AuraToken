@@ -1,4 +1,16 @@
+import { useState } from "react";
+import { mint } from "./Web3Service";
+
 function App() {
+  const [message, setMessage] = useState("");
+
+  function onButtonClick() {
+    setMessage("Requesting transaction...");
+    mint()
+      .then((tx) => setMessage(`Transaction hash: ${tx}`))
+      .catch((err) => setMessage(`Error: ${err.message}`));
+  }
+
   return (
     <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header className="mb-auto">
@@ -28,12 +40,14 @@ function App() {
         <p className="lead">
           <a
             href="#"
+            onClick={onButtonClick}
             className="btn btn-lg btn-light fw-bold border-white bg-white"
           >
             <img src="/assets/metamask.svg" alt="MetaMask logo" width={48} />
             Connect Wallet
           </a>
         </p>
+        <p>{message}</p>
       </main>
 
       <footer className="mt-auto text-white-50">
