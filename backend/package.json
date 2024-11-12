@@ -1,0 +1,25 @@
+{
+  "name": "autatoken-backend",
+  "version": "1.0.0",
+  "description": "Backend for AuraToken",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "npx tsc",
+    "start": "node dist/index.js"
+  },
+  "author": "Luciano Zanin Gabriel",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
