@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import ABI from "./abi.json";
+import axios from "axios";
 
 export async function mint() {
   if (!window.ethereum) throw new Error("MetaMask not found");
@@ -8,10 +8,8 @@ export async function mint() {
   const accounts = await web3.eth.requestAccounts();
   if (!accounts || !accounts.length) throw new Error("No accounts found");
 
-  const contract = new web3.eth.Contract(ABI, process.env.REACT_APP_CONTRACT, {
-    from: accounts[0],
-  });
-  const tx = await contract.methods.mint().send();
-  console.log(tx.transactionHash);
-  return tx.transactionHash;
+  const response = await axios.post(
+    `${process.env.REACT_APP_API_URL}/mint/${accounts[0]}`
+  );
+  return response.data;
 }

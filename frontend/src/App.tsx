@@ -8,7 +8,10 @@ function App() {
     setMessage("Requesting transaction...");
     mint()
       .then((tx) => setMessage(`Transaction hash: ${tx}`))
-      .catch((err) => setMessage(`Error: ${err.message}`));
+      .catch((err) => {
+        console.error(err);
+        setMessage(err.response?.data?.cause?.message);
+      });
   }
 
   return (
