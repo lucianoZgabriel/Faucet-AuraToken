@@ -11,12 +11,14 @@
   "author": "Luciano Zanin Gabriel",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "morgan": "^1.10.0",
     "web3": "^4.15.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/morgan": "^1.9.9",
     "nodemon": "^3.1.7",
