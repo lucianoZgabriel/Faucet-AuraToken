@@ -1,17 +1,30 @@
 import { useState } from "react";
 import { mint } from "./Web3Service";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function App() {
   const [message, setMessage] = useState("");
+  const [captcha, setCaptcha] = useState("");
 
   function onButtonClick() {
-    setMessage("Requesting transaction...");
-    mint()
-      .then((tx) => setMessage(`Transaction hash: ${tx}`))
-      .catch((err) => {
-        console.error(err);
-        setMessage(err.response?.data?.cause?.message);
-      });
+    if (captcha) {
+      setMessage("Requesting transaction...");
+      mint()
+        .then((tx) =>
+          setMessage(
+            `Your tokens were sento to ${localStorage.getItem(
+              "wallet"
+            )}. Tx: ${tx}`
+          )
+        )
+        .catch((err) => {
+          console.error(err);
+          setMessage(
+            err.response ? err.response.data.cause.message : err.message
+          );
+        });
+      setCaptcha("");
+    } else setMessage("Please, complete the reCAPTCHA challenge.");
   }
 
   return (
@@ -50,7 +63,13 @@ function App() {
             Connect Wallet
           </a>
         </p>
-        <p>{message}</p>
+        <div style={{ display: "inline-flex" }}>
+          <ReCAPTCHA
+            sitekey={`${process.env.REACT_APP_RECAPTCHA_SITE_KEY}`}
+            onChange={(value) => setCaptcha(value || "")}
+          />
+        </div>
+        <p className="lead">{message}</p>
       </main>
 
       <footer className="mt-auto text-white-50">
