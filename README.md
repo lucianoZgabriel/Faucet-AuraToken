@@ -5,7 +5,7 @@ A full-stack web3 application that allows users to claim Aura Tokens once per da
 
 - [Features](#features)
 - [Prerequisites](#prerequisites)
-- [Environment Variables](environment-variables)
+- [Environment Variables](#environment-variables)
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
 - [Usage](#usage)
