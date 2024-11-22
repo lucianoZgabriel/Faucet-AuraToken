@@ -34,6 +34,7 @@ A full-stack web3 application that allows users to claim Aura Tokens once per da
 - Google reCAPTCHA site key
 
 ## Environment Variables
+
 Backend (.env)
 ```
 PORT=3001
