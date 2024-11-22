@@ -1,5 +1,21 @@
 # Aura Token Faucet
 A full-stack web3 application that allows users to claim Aura Tokens once per day through a user-friendly interface. The project consists of a smart contract, backend API, and frontend application with MetaMask integration and reCAPTCHA verification.
+
+## Table of Contents
+
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Environment Variables](environment-variables)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Usage](#usage)
+- [Smart Contract Functions](#smart-contract-functions)
+- [API Endpoints](#api-endpoints)
+- [Security Features](#security-features)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 ## Features
 
 - Daily token distribution through a faucet system
@@ -101,8 +117,10 @@ POST /mint/:wallet: Initiates the minting process for the specified wallet addre
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
-- Author: 
+
+## Author 
 Luciano Zanin Gabriel
+
 ## Acknowledgments
 
 - OpenZeppelin for the ERC20 implementation
